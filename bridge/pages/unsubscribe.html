@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your email preferences - Bridge">
+    <title>Email Preferences - Bridge</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/email.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="header-pill">
+                <a href="../index.html" class="logo" aria-label="Bridge Home">
+                    <img src="../assets/images/logos/bridgeLogo.png" alt="" class="logo-img">
+                    <span class="logo-text">BRIDGE</span>
+                </a>
+
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="./get-started.html" class="nav-link">Get Started</a>
+                    <a href="./support.html" class="nav-link">Support</a>
+                    <a href="./join-the-team.html" class="nav-link">Join the Team</a>
+                </nav>
+
+                <a href="https://apps.apple.com/us/app/bridge-fintech/id6482850955" class="header-app-link" aria-label="Download on App Store" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+
+        <div class="email-page-wrapper">
+        <section class="email-hero">
+            <div class="container">
+                <span class="email-hero-label">Account</span>
+                <h1 class="email-hero-title">Email Preferences</h1>
+                <p class="email-hero-subtitle">Manage the emails you receive from Bridge.</p>
+            </div>
+        </section>
+
+        <section class="email-content-section">
+            <div class="container">
+                <div class="email-card">
+
+                    <!-- ── DEFAULT STATE ── -->
+                    <div class="state-default" id="stateDefault">
+
+                        <h2 class="email-card-title">Manage your notifications</h2>
+                        <p class="email-card-subtitle">Choose which emails you'd like to receive, or unsubscribe from all marketing emails below.</p>
+
+                        <div class="prefs-toggles" role="group" aria-label="Email notification preferences">
+                            <div class="prefs-toggles-header">
+                                <span class="prefs-toggles-title">Email types</span>
+                            </div>
+
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <span class="toggle-name">Reminders</span>
+                                    <span class="toggle-desc">Account activity, alerts, and follow-ups</span>
+                                </div>
+                                <label class="switch" aria-label="Toggle reminders">
+                                    <input type="checkbox" id="toggleReminders" checked>
+                                    <span class="switch-track"></span>
+                                </label>
+                            </div>
+
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <span class="toggle-name">Updates</span>
+                                    <span class="toggle-desc">New features, improvements, and announcements</span>
+                                </div>
+                                <label class="switch" aria-label="Toggle updates">
+                                    <input type="checkbox" id="toggleUpdates" checked>
+                                    <span class="switch-track"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="email-actions">
+                            <button class="btn btn-primary" onclick="savePreferences()">
+                                Save preferences
+                            </button>
+                            <button class="btn-danger" onclick="confirmUnsubscribe()">
+                                <svg viewBox="0 0 24 24">
+                                    <polyline points="3 6 5 6 21 6"/>
+                                    <path d="M19 6l-1 14H6L5 6"/>
+                                    <path d="M10 11v6M14 11v6"/>
+                                    <path d="M9 6V4h6v2"/>
+                                </svg>
+                                Unsubscribe from all emails
+                            </button>
+                        </div>
+
+                        <div class="email-divider"></div>
+
+                        <p class="email-note">
+                            Account security and transactional emails cannot be disabled. &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a>
+                        </p>
+
+                    </div><!-- /state-default -->
+
+
+                    <!-- ── SUCCESS STATE ── -->
+                    <div class="state-success" id="stateSuccess">
+
+                        <div class="email-icon" id="successIcon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path class="email-check-path" id="successCheckPath" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+
+                        <h2 class="email-card-title" id="successTitle">Preferences saved.</h2>
+                        <p class="email-card-subtitle" id="successSubtitle">
+                            Your email preferences have been updated. Changes may take up to 24 hours to take effect.
+                        </p>
+
+                        <div class="email-actions">
+                            <a href="../index.html" class="btn btn-primary">Back to Bridge</a>
+                            <button class="btn-text-link" onclick="showDefault()">Edit preferences again</button>
+                        </div>
+
+                        <div class="email-divider"></div>
+
+                        <p class="email-note">
+                            Need help? <a href="support.html">Contact support</a>
+                        </p>
+
+                    </div><!-- /state-success -->
+
+                </div><!-- /email-card -->
+            </div>
+        </section>
+        </div>
+
+        <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+        <h3 class="modal-title">Unsubscribe from all emails?</h3>
+        <p class="modal-desc">You'll no longer receive marketing emails from Bridge. Account security and transactional emails will continue.</p>
+        <div class="modal-actions">
+            <button class="btn btn-light" onclick="closeModal()">Cancel</button>
+            <button class="btn-danger" onclick="doUnsubscribe()">Yes, unsubscribe</button>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/images/logos/bridgeLogo.png" alt="Bridge" class="footer-logo-img">
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Features</h4>
+                        <nav class="footer-column-links">
+                            <a href="../index.html#account-aggregation">Account Aggregation</a>
+                            <a href="../index.html#financial-insights">Financial Insights</a>
+                            <a href="../index.html#manage-debt">Manage Debt</a>
+                            <a href="../index.html#bill-pay">Bill Pay</a>
+                            <a href="../index.html#integrations">Integrations</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Solutions</h4>
+                        <nav class="footer-column-links">
+                            <a href="../index.html#bridgette-ai">Bridgette AI</a>
+                            <a href="../index.html#financial-marketplace">Financial Marketplace</a>
+                            <a href="../index.html#money-movement">Money Movement</a>
+                            <a href="../index.html#security">Security</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Resources</h4>
+                        <nav class="footer-column-links">
+                            <a href="support.html">Support</a>
+                            <a href="get-started.html">Get Started</a>
+                            <a href="support.html#faq">FAQ</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Company</h4>
+                        <nav class="footer-column-links">
+                            <a href="join-the-team.html">About</a>
+                            <a href="join-the-team.html#careers">Careers</a>
+                            <a href="join-the-team.html#investors">Investors</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <span>© 2025 Bridge Financial Inc.</span>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html" class="footer-legal-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+ <script>
+    function confirmUnsubscribe() {
+        document.getElementById('modalOverlay').classList.add('visible');
+    }
+
+    function closeModal() {
+        document.getElementById('modalOverlay').classList.remove('visible');
+    }
+
+    function doUnsubscribe() {
+        closeModal();
+        showSuccess(
+            "You've been unsubscribed.",
+            "You'll no longer receive marketing emails from Bridge. Account security and transactional emails will continue.",
+            true
+        );
+    }
+
+    // Close on overlay click
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    function showSuccess(title, subtitle, useAmber) {
+        const icon = document.getElementById('successIcon');
+        icon.className = 'email-icon ' + (useAmber ? 'email-icon--amber' : 'email-icon--green');
+
+        document.getElementById('successTitle').textContent = title;
+        document.getElementById('successSubtitle').textContent = subtitle;
+
+        const path = document.getElementById('successCheckPath');
+        path.style.animation = 'none';
+        path.offsetHeight;
+        path.style.animation = 'emailDrawCheck 0.4s 0.3s ease forwards';
+
+        document.getElementById('stateDefault').classList.add('hidden');
+        document.getElementById('stateSuccess').classList.add('visible');
+    }
+
+    function savePreferences() {
+        showSuccess(
+            'Preferences saved.',
+            "Your email preferences have been updated. You'll only hear from us about what matters to you.",
+            false
+        );
+    }
+
+    function showDefault() {
+        document.getElementById('stateSuccess').classList.remove('visible');
+        document.getElementById('stateDefault').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>

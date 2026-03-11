@@ -1,0 +1,429 @@
+
+.email-hero {
+    background: none;
+    padding: calc(var(--space-4xl) + 20px) var(--space-lg) var(--space-3xl);
+    text-align: center;
+}
+
+.email-hero-label {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.70rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.email-hero-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--color-primary);
+    line-height: 1.15;
+    margin: 0 0 var(--space-md);
+}
+
+.email-hero-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+
+
+
+.email-page-wrapper {
+    background: linear-gradient(
+        180deg,
+        var(--color-white) 0%,
+        var(--color-primary-soft) 40%,
+        #e8d5e0 70%,
+        #f5e6e8 100%
+    );
+}
+
+/* ── Confirmation modal ───────────────────────────────────────── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+    transform: translateY(12px) scale(0.98);
+    transition: transform 0.2s ease;
+}
+
+.modal-overlay.visible .modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-sm);
+}
+
+.modal-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 0 var(--space-xl);
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.modal-actions .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-actions .btn-danger {
+    flex: 1;
+}
+
+
+.email-content-section {
+    background: none;
+    padding: 0 var(--space-lg) var(--space-4xl);
+}
+
+.email-content-section .container {
+    max-width: 560px;
+}
+
+
+
+
+.email-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    box-shadow: 0 2px 16px rgba(36, 89, 104, 0.06);
+}
+
+
+
+
+.email-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+}
+
+.email-icon--green {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+    box-shadow: 0 6px 20px rgba(82, 171, 152, 0.30);
+}
+
+.email-icon--amber {
+    background: linear-gradient(135deg, #e9d8a6, #ee9b00);
+    box-shadow: 0 6px 20px rgba(238, 155, 0, 0.22);
+}
+
+.email-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--color-white);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.email-check-path {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: emailDrawCheck 0.4s 0.3s ease forwards;
+}
+
+@keyframes emailDrawCheck {
+    to { stroke-dashoffset: 0; }
+}
+
+
+
+
+.email-card-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin: 0 0 var(--space-sm);
+    text-align: center;
+}
+
+.email-card-subtitle {
+    font-size: 0.97rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    text-align: center;
+    margin: 0 0 var(--space-xl);
+}
+
+
+
+
+.prefs-toggles {
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+}
+
+.prefs-toggles-header {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.prefs-toggles-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.toggle-row:last-child {
+    border-bottom: none;
+}
+
+.toggle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.toggle-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--color-text-main);
+}
+
+.toggle-desc {
+    font-size: 0.80rem;
+    color: var(--color-text-muted);
+}
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.switch-track {
+    position: absolute;
+    inset: 0;
+    background: var(--color-border-subtle);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.22s;
+}
+
+.switch-track::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background: var(--color-white);
+    border-radius: 50%;
+    transition: transform 0.22s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.switch input:checked + .switch-track {
+    background: var(--color-accent);
+}
+
+.switch input:checked + .switch-track::before {
+    transform: translateX(20px);
+}
+
+.switch input:focus-visible + .switch-track {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+
+/* ── Actions ─────────────────────────────────────────────────── */
+
+.email-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.email-actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.btn-danger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    width: 100%;
+    background: transparent;
+    color: #b91c1c;
+    border: 1.5px solid rgba(185, 28, 28, 0.25);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.90rem;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s;
+}
+
+.btn-danger:hover {
+    background: rgba(185, 28, 28, 0.06);
+    border-color: #b91c1c;
+}
+
+.btn-danger svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn-text-link {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: var(--space-xs) 0;
+    transition: color 0.18s;
+    width: 100%;
+}
+
+.btn-text-link:hover {
+    color: var(--color-primary);
+}
+
+
+/* ── Divider ─────────────────────────────────────────────────── */
+
+.email-divider {
+    height: 1px;
+    background: var(--color-border-subtle);
+    margin: var(--space-xl) 0 var(--space-lg);
+}
+
+
+/* ── Footer note ─────────────────────────────────────────────── */
+
+.email-note {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.email-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.email-note a:hover {
+    text-decoration: underline;
+}
+
+
+/* ── State transitions (unsubscribe page) ────────────────────── */
+
+.state-default              { display: block; }
+.state-success              { display: none;  text-align: center; }
+.state-default.hidden       { display: none; }
+.state-success.visible      { display: block; }
+
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .email-hero {
+        padding: calc(var(--space-3xl) + 20px) var(--space-md) var(--space-2xl);
+    }
+
+    .email-content-section {
+        padding: var(--space-2xl) var(--space-md) var(--space-3xl);
+    }
+
+    .email-card {
+        padding: var(--space-xl) var(--space-lg);
+    }
+}
