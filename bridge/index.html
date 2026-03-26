@@ -6,6 +6,7 @@
     <meta name="description" content="Bridge - All your accounts. One clean view. Link accounts, view insights, move money instantly.">
     <title>Bridge - All Your Accounts, One Clean View</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/visual-upgrade.css">
 </head>
 <body>
 <header class="header" role="banner">
@@ -728,6 +729,43 @@
 </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/marquee.js"></script>
+    <script>
+    // Scroll-reveal: add .reveal to key sections, then observe
+    (function () {
+        const selectors = [
+            '.hero-title', '.hero-features', '.hero-download-cta',
+            '.app-store-btn', '.hero-trust',
+            '.integrations-section .container > *',
+            '.features-header', '.feature-showcase-card',
+            '.split-row', '.security-card',
+            '.mission-section .container > *',
+            '.value-item', '.final-cta-content'
+        ];
+
+        selectors.forEach(function (sel) {
+            document.querySelectorAll(sel).forEach(function (el, i) {
+                el.classList.add('reveal');
+                if (i === 1) el.classList.add('reveal-delay-1');
+                if (i === 2) el.classList.add('reveal-delay-2');
+                if (i === 3) el.classList.add('reveal-delay-3');
+                if (i >= 4)  el.classList.add('reveal-delay-4');
+            });
+        });
+
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            io.observe(el);
+        });
+    })();
+    </script>
 <script>
 (function() {
     let lastDPR = window.devicePixelRatio;
